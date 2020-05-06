@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Vue.js - Simple ToDO App">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:type" content="Vue.js - Simple ToDO App">
+    <meta property="og:title" content="Vue.js - Simple ToDO App">
+    <meta property="og:description" content="Vue.js - Simple ToDO App">
+    <meta property="og:image" content="social.png">
+
+    <meta name="twitter:card" content="Vue.js - Simple ToDO App">
+    <meta name="twitter:title" content="Vue.js - Simple ToDO App">
+    <meta name="twitter:description" content="VVue.js - Simple ToDO App">
+    <meta name="twitter:image" content="social.png">
+
+    <meta name="msapplication-TileImage" content="social.png">
+    <link rel="icon" href="social.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="top-area"><a href="https://ayshatech.com"><img src="logo.jpg" alt="Logo"></a></div>
+    <main id="app">
+        <h2>{{title}}</h1>
+        <form @submit.prevent="addTodo">
+            <label for="newTodo">New Todo</label>
+            <input v-model="newTodo" type="text" name="newTodo" id="newTodo">
+            <button type="submit" name="button" class="btn-success">Add New</button>
+        </form>
+        <!-- <h4>{{newTodo}}</h4> -->
+        <button @click="allDone" type="button" name="button" class="btn-primary">Mark All Done</button>
+        <ol>
+            <li v-for="todo in todos">
+                <input type="checkbox" v-model=todo.done>
+                <span :class ="{done: todo.done}">{{todo.title}}</span>
+                <button @click="removeTodo(todo)" type="button" name="button" class="btn-danger">Remove</button>
+            </li>
+        </ol>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
